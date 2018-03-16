@@ -1,7 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "portal"
+    "name": "portal",
+    "ejected": true
   },
   "apps": [
     {
@@ -9,7 +10,10 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        { "glob": "jquery.slim.min.js.map", "input": "../node_modules/jquery/dist/", "output": "./" },
+        { "glob": "popper.min.js.map", "input": "../node_modules/popper.js/dist/umd/", "output": "./" },
+        { "glob": "bootstrap.min.js.map", "input": "../node_modules/bootstrap/dist/js/", "output": "./" }
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,9 +23,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.slim.min.js",
+        "../node_modules/popper.js/dist/umd/popper.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -55,6 +64,7 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {}
+    "component": {
+    }
   }
 }
